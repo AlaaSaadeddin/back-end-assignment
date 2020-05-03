@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon server/index.js"
+    "dev": "NODE_ENV=development nodemon server/index.js",
+    "test": "NODE_ENV=test jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,6 @@
     "yup": "^0.28.5"
   },
   "devDependencies": {
-    "jest": "^25.5.4",
     "nodemon": "^2.0.3"
   }
 }
