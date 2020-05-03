@@ -26,6 +26,7 @@
     "yup": "^0.28.5"
   },
   "devDependencies": {
+    "jest": "^25.5.4",
     "nodemon": "^2.0.3"
   }
 }
