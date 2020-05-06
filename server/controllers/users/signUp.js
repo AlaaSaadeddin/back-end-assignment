@@ -1,7 +1,7 @@
 // const {sign , verify} = require('jsonwebtoken');
 
 const userSchema = require('../../utils');
-const {addUser} = require('../../database/queries/signUpUser');
+const addUser = require('../../database/queries/signUpUser');
 
 console.log('33333333333333333333333333333333333333333333');
 const signUp = async (req , res ,next) => {
@@ -10,7 +10,7 @@ const signUp = async (req , res ,next) => {
 
     try {
         const {username,email,password} = await userSchema.validate(req.body, {abortEarly:false});
-        const newUser = await addUser(data);
+        const newUser = await addUser({username,email,password});
 
 
         console.log( 'data', newUser);

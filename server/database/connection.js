@@ -10,7 +10,8 @@ dburl = process.env.DB_URL;
 
 const options = {
     connectionString : dbUrl,
-    ssl : true
+    ssl: {
+        rejectUnauthorized: false,
+      },
 }
-
 module.exports = new Pool(options);
