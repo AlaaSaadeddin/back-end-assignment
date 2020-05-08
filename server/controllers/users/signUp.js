@@ -12,17 +12,13 @@ const signUp = async (req, res, next) => {
 
     const salt = await genSalt(10);
     const hashed = await hash(password, salt);
-    console.log('hash :>> ', hashed);
     const newUser = await addUser({ username, email, password: hashed });
     const id = newUser.rows[0];
-    console.log('id :>> ', id);
     const token = sign(id, process.env.SecretKey);
-    console.log('object :>> ', process.env.SecretKey);
     res.cookie('token', token).status(200).json({
       statusCode: '200',
       message: 'welcome to Home Page',
     });
-    console.log('token :>> ', token);
   } catch (err) {
     if (err.detail) {
       res.status(400).json({
