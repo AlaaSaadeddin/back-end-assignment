@@ -1,6 +1,3 @@
-const {signUp , logout} = require('../controllers/users');
+const { signUp, logout } = require('./users');
 
-
-
-
-module.exports = {signUp , logout};
+module.exports = { signUp, logout };
