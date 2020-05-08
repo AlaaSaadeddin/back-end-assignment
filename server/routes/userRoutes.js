@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const signUp = require('../controllers/users');
-
+const signUp = require('../controllers');
 
 
 router.post('/signup' , signUp);
