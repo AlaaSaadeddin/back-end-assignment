@@ -5,7 +5,6 @@ const loginUser = require('../../database/queries/loginUser');
 const { loginValidate } = require('../../utils');
 
 const login = async (req, res, next) => {
-  console.log('req.body :>> ', req.body);
   try {
     const { username, password } = await loginValidate.validate(req.body, {
       abortEarly: false,
