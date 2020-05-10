@@ -1,3 +1,4 @@
-const userSchema = require('../utils/validation/userSchema');
+const userSchema = require('./validation/userSchema');
+const loginValidate = require('./validation/loginSchema');
 
-module.exports = userSchema;
+module.exports = { userSchema, loginValidate };
