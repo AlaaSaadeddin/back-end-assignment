@@ -24,9 +24,13 @@ const login = async (req, res, next) => {
         });
       } else {
         res.status(400).json({
-          message: 'user does not exists',
+          message: 'Invalid Password',
         });
       }
+    } else {
+      res.status(400).json({
+        message: 'user does not exists',
+      });
     }
   } catch (err) {
     if (err.errors) {

@@ -1,22 +1,20 @@
 const { verify } = require('jsonwebtoken');
 
-const authRoute = async (req, res, next) => {
-  try {
-    if (req.cookies && req.cookies.token) {
-      await verify(req.cookies.token, process.env.SecretKey);
-    } else {
-      res.status(401).json({
-        message: 'Please sign up or login',
-      });
-    }
-  } catch (err) {
-    if (err) {
-      res.status(401).json({
-        message: 'Unauthorized',
-      });
-    }
+const authRoute = (req, res, next) => {
+  if (req.cookies && req.cookies.token) {
+    verify(req.cookies.token, process.env.SecretKey, (err, payload) => {
+      console.log('payload :>> ', payload);
+      if (err) {
+        res.status(401).json({
+          message: 'Unauthorized',
+        });
+      }
+    });
+  } else {
+    res.status(401).json({
+      message: 'Please sign up or login',
+    });
   }
   next();
 };
-
 module.exports = authRoute;
