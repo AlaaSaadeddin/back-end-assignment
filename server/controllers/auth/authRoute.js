@@ -8,6 +8,8 @@ const authRoute = (req, res, next) => {
         res.status(401).json({
           message: 'Unauthorized',
         });
+      } else {
+        next();
       }
     });
   } else {
@@ -15,6 +17,5 @@ const authRoute = (req, res, next) => {
       message: 'Please sign up or login',
     });
   }
-  next();
 };
 module.exports = authRoute;
